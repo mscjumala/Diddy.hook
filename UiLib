@@ -3412,7 +3412,7 @@ function library:CreateWindow(name, size, hidebutton)
             local Config = configSystem.sector:AddDropdown("Configs", {}, default, false, function() end, "")
             for i,v in pairs(listfiles(configSystem.configFolder)) do
                 if v:find(".txt") then
-                    Config:Add(tostring(v):gsub(configSystem.configFolder .. "\\", ""):gsub(".txt", ""))
+                    Config:Add(tostring(v)..".txt")
                 end
             end
 
