@@ -53,6 +53,22 @@ if library.theme.cursor and Drawing then
         library.cursor.Rounding = 0
         library.cursor.Position = Vector2.new(mouse.X - 32, mouse.Y + 6)
     end)
+    if success and library.cursor then
+        uis.InputChanged:Connect(function(input)
+            if uis.MouseEnabled then
+                if input.UserInputType == Enum.UserInputType.MouseMovement then
+                    library.cursor.Position = Vector2.new(input.Position.X - 32, input.Position.Y + 7)
+                end
+            end
+        end)
+        
+        game:GetService("RunService").RenderStepped:Connect(function()
+            uis.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
+            library.cursor.Visible = uis.MouseEnabled and (uis.MouseIconEnabled or game:GetService("GuiService").MenuIsOpen)
+        end)
+    elseif not success and library.cursor then
+        library.cursor:Remove()
+    end
 end
 
 function library:CreateWatermark(name, position)
@@ -3396,7 +3412,7 @@ function library:CreateWindow(name, size, hidebutton)
             local Config = configSystem.sector:AddDropdown("Configs", {}, default, false, function() end, "")
             for i,v in pairs(listfiles(configSystem.configFolder)) do
                 if v:find(".txt") then
-                    Config:Add(tostring(v):gsub(".txt", ""))
+                    Config:Add(tostring(v):gsub(configSystem.configFolder .. "\\", ""):gsub(".txt", ""))
                 end
             end
 
