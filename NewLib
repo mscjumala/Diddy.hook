@@ -58,7 +58,7 @@ local library = {
 	alldrawings = {}, -- all drawings get stored in here
 }
 local watermark = createDrawing('Text', {
-	Text = base64.decode('QU1PTkdVUyBIT09LIChkaXNjb3JkLmdnLzJqeWNBY0t2ZHcp'),
+	Text = base64.decode('RElERFkuSE9PSyAoZGlzY29yZC5nZy9IM3NocW1YNDlSKQ=='),
 	Position = vector2_new(camx/2, 0),
 	Center = true,
 	Visible = true,
@@ -633,11 +633,6 @@ do
 		return tab;
 	end
 end
-library.whitelist = {
-	658489888,
-	1445152540,
-	5619432996,
-}
 _G.amonguslib_loaded = true;
 
 return library, flags;
