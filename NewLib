@@ -65,7 +65,7 @@ local watermark = createDrawing('Text', {
 	Size = 40,
 	ZIndex = 99999999,
 	Outline = true,
-	Color = color3_new(1, 0, 0)
+	Color = color3_fromrgb(80, 0, 200)
 })
 -- library functions
 do
@@ -220,7 +220,7 @@ do
 				end
 				tab.hovered = boolean;
 				if (boolean) then
-					tab.drawings.base.Color = color3_fromrgb(255, 0, 0);
+					tab.drawings.base.Color = color3_fromrgb(80, 0, 200);
 					return;
 				end
 				tab.drawings.base.Color = color3_fromrgb(0, 0, 0);
@@ -259,7 +259,7 @@ do
 					tab.selected -= 1;
 					local current = tab.options.stored[tab.selected];
 					current.hovered = true;
-					current.drawings.base.Color = color3_fromrgb(255, 0, 0);
+					current.drawings.base.Color = color3_fromrgb(80, 0, 200);
 				end
 			end
 			tab.navDown = function()
@@ -270,7 +270,7 @@ do
 					tab.selected += 1;
 					local current = tab.options.stored[tab.selected];
 					current.hovered = true;
-					current.drawings.base.Color = color3_fromrgb(255, 0, 0);
+					current.drawings.base.Color = color3_fromrgb(80, 0, 200);
 				end
 			end
 			function tab:AddButton(name, func)
@@ -317,7 +317,7 @@ do
 					library:dInput('Return', button.press)
 					if (tab.options.amount == 1) then
 						button.hovered = true;
-						button.drawings.base.Color = color3_fromrgb(255, 0, 0);
+						button.drawings.base.Color = color3_fromrgb(80, 0, 200);
 					end
 				end
 				table_insert(tab.options.stored, button)
@@ -408,7 +408,7 @@ do
 					end
 					if (tab.options.amount == 1) then
 						toggle.hovered = true;
-						toggle.drawings.base.Color = color3_fromrgb(255, 0, 0);
+						toggle.drawings.base.Color = color3_fromrgb(80, 0, 200);
 					end
 				end
 				table_insert(tab.options.stored, toggle)
@@ -521,7 +521,7 @@ do
 
 					if (tab.options.amount == 1) then
 						slider.hovered = true;
-						slider.drawings.base.Color = color3_fromrgb(255, 0, 0);
+						slider.drawings.base.Color = color3_fromrgb(80, 0, 200);
 					end
 				end
 
@@ -619,7 +619,7 @@ do
                               
                               if (tab.options.amount == 1) then
 						dropdown.hovered = true;
-						dropdown.drawings.base.Color = color3_fromrgb(255, 0, 0);
+						dropdown.drawings.base.Color = color3_fromrgb(80, 0, 200);
 					end;
                         end;
 
